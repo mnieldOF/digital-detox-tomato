@@ -8,9 +8,9 @@ import Tabs from "../components/Tabs";
 import Varieties from "../components/Varieties";
 import CTABlock from "../components/CTABlock";
 import { getTomatoData } from "../api";
+import { Flex, Container } from "../styles/atoms";
 
 export default function Home({ data }) {
-  console.log(data);
   const { tabs, varietiesBlock, contactBlock } = data.datoCmsHome;
   const [tomatoData, setTomatoData] = React.useState(null);
 
@@ -23,8 +23,14 @@ export default function Home({ data }) {
     <>
       <GlobalStyle />
       <Header />
-      <TomatoDetail tomato={tomatoData} />
-      <Varieties data={varietiesBlock} />
+      <div>
+        <Container>
+          <Flex>
+            <Varieties data={varietiesBlock} />
+            <TomatoDetail tomato={tomatoData} />
+          </Flex>
+        </Container>
+      </div>
       <Tabs data={tabs} />
       <CTABlock data={contactBlock} />
     </>

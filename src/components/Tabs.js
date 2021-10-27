@@ -1,8 +1,14 @@
 import React from "react";
 import { StructuredText } from "react-datocms";
 import styled from "@emotion/styled";
+import { Container, StyledButton } from "../styles/atoms";
+
+const StyledSection = styled.section`
+  padding: 30px 0;
+`;
 
 const TabContentStyled = styled.div`
+  border-top: 3px solid #451e1e;
   &.hide {
     display: none;
   }
@@ -13,14 +19,14 @@ export default function Tabs({ data }) {
 
   const TabTitles = () =>
     data[0].tabBlock.map((tab, index) => (
-      <button
+      <StyledButton
         onClick={() => {
           setActiveTab(index);
         }}
         key={`tt_${index}`}
       >
         {tab.tabTitle}
-      </button>
+      </StyledButton>
     ));
 
   const TabContent = () =>
@@ -36,9 +42,13 @@ export default function Tabs({ data }) {
     });
 
   return (
-    <div>
-      <TabTitles />
-      <TabContent />
-    </div>
+    <StyledSection>
+      <Container>
+        <TabTitles />
+      </Container>
+      <Container>
+        <TabContent />
+      </Container>
+    </StyledSection>
   );
 }
