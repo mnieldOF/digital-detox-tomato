@@ -10,7 +10,8 @@ Add the API keys supplied in the email to the following files:
 
 Once the API keys have been added please run the following commands.
 
-````npm install
+```
+ npm install
  gatsby develop
- ```
-````
+
+```
