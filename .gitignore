@@ -3,6 +3,3 @@ node_modules
 public
 package-lock.json
 yarn.lock
-.env
-.env.development
-.env.production
